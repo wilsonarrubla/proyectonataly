@@ -1,12 +1,13 @@
 {
   "name": "proyectonataly",
   "version": "1.0.0",
-  "description": "Tienda virtual productos para mascotas",
+  "description": "Tienda virtual Galeria de Arte",
   "main": "server.js",
-  "scripts": {"start": "node back/server.js",
-  "dev":"SET NODE_ENV=DEVELOPMENT& nodemon back/server",
-  "prod":"SET NODE_ENV=PRODUCTION& nodemon back/server"},
-  
+  "scripts": {
+    "start": "node back/server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon back/server",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon back/server"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/wilsonarrubla/proyectonataly.git"
@@ -20,7 +21,8 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongoose": "^6.6.5"
+    "mongoose": "^6.6.5",
+    "node-fetch": "^3.2.10"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
