@@ -6,7 +6,7 @@ const Header = () => {
         <nav className='navbar row'>
         <div className='col-12 col-md-3'>
                     <div className='navbar-brand'>
-                        <img src="./images/vetyshop.png" alt="Vety Shop Store Logo"></img>
+                        <img src="./images/logoWA.png" alt="Vety Shop Store Logo"></img>
                     </div>
                 </div>
 
