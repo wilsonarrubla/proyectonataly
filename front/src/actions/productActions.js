@@ -4,9 +4,9 @@ import {
     ALL_PRODUCTS_REQUEST,
     ALL_PRODUCTS_SUCCESS,
     ALL_PRODUCTS_FAIL,
-    /*PRODUCT_DETAILS_REQUEST,
+    PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
-    PRODUCT_DETAILS_FAIL,*/
+    PRODUCT_DETAILS_FAIL,
     CLEAR_ERRORS
 } from '../constans/productConstans';
 
@@ -30,7 +30,7 @@ export const getProducts = () => async(dispatch)=>{
 }
 
 //VER DETALLE DEL PRODUCTO
-/*export const getProductDetails = (id) => async(dispatch)=>{
+export const getProductDetails = (id) => async(dispatch)=>{
     try {
         dispatch({type: PRODUCT_DETAILS_REQUEST})
 
@@ -46,7 +46,7 @@ export const getProducts = () => async(dispatch)=>{
             payload: error.response.data.message
         })
     }
-}*/
+}
 
 
 //clear error
