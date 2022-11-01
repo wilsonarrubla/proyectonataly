@@ -1,3 +1,5 @@
+//Paso 2 Crear los estados se comienza importa las constantes
+
 import { ALL_PRODUCTS_REQUEST, 
     ALL_PRODUCTS_SUCCESS, 
     ALL_PRODUCTS_FAIL,
@@ -6,11 +8,11 @@ import { ALL_PRODUCTS_REQUEST,
     PRODUCT_DETAILS_FAIL,
     CLEAR_ERRORS} from "../constans/productConstans";
 
-export const productsReducer = (state ={ products: []}, action)=>{
+export const productsReducer = (state ={ products: []}, action)=>{  //Aqui se trae un arreglo de productos
     switch(action.type){
         case ALL_PRODUCTS_REQUEST:
             return{
-                loading:true,
+                loading:true, // 
                 productos:[]
             }
 
@@ -40,12 +42,12 @@ export const productsReducer = (state ={ products: []}, action)=>{
 }
 
 //REDUCER PARA TENER TODOS LOS DETALLES
-export const productDetailsReducer = (state ={ product: {}}, action)=>{
+export const productDetailsReducer = (state ={ product: {}}, action)=>{  //Quitamos el areglo de productos y se coloca las llaves porque en el template se maneja con llaves
     switch(action.type){
         case PRODUCT_DETAILS_REQUEST:
             return{
-                ...state,
-                loading:true
+                ...state,  //devuelve un estado los tres puntos es por si hay demora en la respuesta
+                loading:true  // para el cargando..
             }
 
         case PRODUCT_DETAILS_SUCCESS:

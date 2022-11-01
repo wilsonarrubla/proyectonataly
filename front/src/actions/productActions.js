@@ -1,3 +1,4 @@
+//paso 4 se crean los metodos de consultas al back 
 import axios from 'axios';
 
 import {
@@ -30,11 +31,11 @@ export const getProducts = () => async(dispatch)=>{
 }
 
 //VER DETALLE DEL PRODUCTO
-export const getProductDetails = (id) => async(dispatch)=>{
+export const getProductDetails = (id) => async(dispatch)=>{ //Metodos consulta por id
     try {
         dispatch({type: PRODUCT_DETAILS_REQUEST})
 
-        const {data} = await axios.get(`api/producto/:${id}`)
+        const {data} = await axios.get(`api/producto/:${id}`) //tener en cuenta los : para poder que funcione
 
         dispatch({
             type:PRODUCT_DETAILS_SUCCESS,
