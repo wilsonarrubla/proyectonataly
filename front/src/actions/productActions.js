@@ -16,7 +16,7 @@ export const getProducts = () => async(dispatch)=>{
     try {
         dispatch({type: ALL_PRODUCTS_REQUEST})
 
-        const {data} = await axios.get('api/productos')
+        const {data} = await axios.get('/api/productos')
 
         dispatch({
             type:ALL_PRODUCTS_SUCCESS,
@@ -35,7 +35,7 @@ export const getProductDetails = (id) => async(dispatch)=>{ //Metodos consulta p
     try {
         dispatch({type: PRODUCT_DETAILS_REQUEST})
 
-        const {data} = await axios.get(`api/producto/:${id}`) //tener en cuenta los : para poder que funcione
+        const {data} = await axios.get(`/api/producto/${id}`) 
 
         dispatch({
             type:PRODUCT_DETAILS_SUCCESS,

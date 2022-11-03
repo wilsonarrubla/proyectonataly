@@ -42,34 +42,35 @@ export const productsReducer = (state ={ products: []}, action)=>{  //Aqui se tr
 }
 
 //REDUCER PARA TENER TODOS LOS DETALLES
-export const productDetailsReducer = (state ={ product: {}}, action)=>{  //Quitamos el areglo de productos y se coloca las llaves porque en el template se maneja con llaves
-    switch(action.type){
+export const productDetailsReducer = (state = { product: {} }, action) => {  //Quitamos el areglo de productos y se coloca las llaves porque en el template se maneja con llaves
+    switch (action.type) {
         case PRODUCT_DETAILS_REQUEST:
             return{
                 ...state,  //devuelve un estado los tres puntos es por si hay demora en la respuesta
                 loading:true  // para el cargando..
             }
 
-        case PRODUCT_DETAILS_SUCCESS:
-            return{
-                loading:false,
-                product: action.payload.product,
-            }
-
-        case PRODUCT_DETAILS_FAIL:
-            return{
-                ...state,
-                error: action.payload
-            }
-
-        case CLEAR_ERRORS:
-            return{
-                ...state,
-                error:null
-            }
-        
-
-        default:
-            return state;
+            case PRODUCT_DETAILS_SUCCESS:
+                return {
+                    loading: false,
+                    product: action.payload
+                }
+    
+            case PRODUCT_DETAILS_FAIL:
+                return {
+                    ...state,
+                    error: action.payload
+                }
+    
+            case CLEAR_ERRORS:
+                return {
+                    ...state,
+                    error: null
+                }
+    
+            default:
+                return state
+        }
     }
-}
+    
+    
