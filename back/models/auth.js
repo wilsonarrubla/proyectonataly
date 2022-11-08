@@ -49,7 +49,7 @@ usuarioSchema.pre("save", async function (next) {
     if (!this.isModified("password")) {
         next()
     }
-    this.password = await bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10) //nivel de increptaciòn 10 por defecto
 })
 
 //Exportaciòn del modelo
