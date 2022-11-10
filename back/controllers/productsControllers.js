@@ -36,14 +36,14 @@ exports.getProductById= catchAsyncErrors( async (req, res, next)=>{
     })
 })
 
-//Crear Nuevos productos  /api/productos
-exports.newProducts=catchAsyncErrors ( async(req,res,next)=>{
-    const product = await producto.create(req.body);
+//Crear nuevo producto /api/productos
+exports.newProducts=catchAsyncErrors(async(req,res,next)=>{
+    req.body.user=req.user.id;  //segun la algoritmia esta linea debe estar primero para poder que se relacione el usuario con el producto
+    const product= await producto.create(req.body);
     res.status(201).json({
-        sucess:true,
+        success:true,
         product
     })
-
 })
 
 

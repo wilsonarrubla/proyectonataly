@@ -74,6 +74,12 @@ const productosSchema=mongoose.Schema({
             }
         }
     ],
+//Esta linea es para relacionar los usuarios y los productos de bd;  y la referencia User es la misma que User de authController
+    user:{
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
     fechaCreacion:{
         type:Date,
         default:Date.now
