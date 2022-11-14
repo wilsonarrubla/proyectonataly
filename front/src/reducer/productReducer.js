@@ -11,30 +11,32 @@ import { ALL_PRODUCTS_REQUEST,
 export const productsReducer = (state ={ products: []}, action)=>{  //Aqui se trae un arreglo de productos
     switch(action.type){
         case ALL_PRODUCTS_REQUEST:
-            return{
-                loading:true, // 
-                productos:[]
+            return {
+                loading: true,
+                products: []
             }
 
         case ALL_PRODUCTS_SUCCESS:
-            return{
-                loading:false,
-                productos: action.payload.productos,
-                cantidad: action.payload.cantidad
+            return {
+                loading: false,
+                products: action.payload.products,
+                productsCount: action.payload.productsCount,
+                resPerPage: action.payload.resPerPage,
+                filteredProductsCount: action.payload.filteredProductsCount
             }
 
         case ALL_PRODUCTS_FAIL:
-            return{
-                loading:false,
+            return {
+                loading: false,
                 error: action.payload
             }
 
         case CLEAR_ERRORS:
-            return{
+            return {
                 ...state,
-                error:null
+                error: null
             }
-        
+
 
         default:
             return state;

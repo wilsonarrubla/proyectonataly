@@ -7,7 +7,7 @@ class APIFeatures{
 search(){
     const keyword= this.queryStr.keyword ? {
         nombre:{
-            $regex:this.queryStr.keyword,    //regex es para que interprete la palabara que se busca de todas las formas, mayus, min etc
+            $regex:this.queryStr.keyword,
             $options:'i'
         }
     }:{}
