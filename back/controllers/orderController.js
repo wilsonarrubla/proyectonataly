@@ -98,7 +98,7 @@ exports.updateOrder= catchAsyncErrors(async(req, res, next)=>{
         order
     })
 })
-
+//Actualizar inventario eb BD
 async function updateStock(id, quantity){
     const product = await Product.findById(id);
     product.inventario= product.inventario-quantity;
