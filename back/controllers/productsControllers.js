@@ -2,6 +2,7 @@
  // creamos constante que se alimenta del esquema creado
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const producto=require("../models/productos");
+const APIFeatures = require("../utils/apiFeature");
 const ErrorHandler = require("../utils/errorHandler");
 const fetch =(url)=>import('node-fetch').then(({default:fetch})=>fetch(url)); //Usurpación del require
 
@@ -10,15 +11,31 @@ const fetch =(url)=>import('node-fetch').then(({default:fetch})=>fetch(url)); //
 
 //Ver la lista de productos
 exports.getProducts=catchAsyncErrors( async (req,res,next) =>{
-    const productos= await producto.find();
-    if (!productos){
-        return next(new ErrorHandler("Información no encontrada",404))        
-}
+    
+    const resPerPage = 4;
+    const productsCount = await producto.countDocuments();
+
+    const apiFeatures = new APIFeatures(producto.find(), req.query)
+        .search()
+        .filter();
+
+    let products = await apiFeatures.query;
+    let filteredProductsCount= products.length;
+    apiFeatures.pagination(resPerPage);
+    products = await apiFeatures.query.clone();
+
     res.status(200).json({
-        success:true,
-        cantidad: productos.length,
-        productos
+        success: true,
+        productsCount,
+        resPerPage,
+        filteredProductsCount,
+        products
     })
+
+
+
+
+    
 })
 
 //Ver un producto por ID
