@@ -8,7 +8,7 @@ search(){
     const keyword= this.queryStr.keyword ? {
         nombre:{
             $regex:this.queryStr.keyword,
-            $options:'i'
+            $options:'i'    //Aqui se puede agregar para que la busqueda tambien se haga en descripción del producto
         }
     }:{}
 
