@@ -25,7 +25,7 @@ import {
     NEW_PASSWORD_REQUEST,
     NEW_PASSWORD_SUCCESS,
     NEW_PASSWORD_FAIL
-} from "../constants/userConstants"
+} from "../constans/userConstants"
 
 //Login
 export const login = (email, password) => async (dispatch) => {
@@ -59,7 +59,7 @@ export const register = (userData) => async (dispatch) => {
 
         const config={
             headers: {
-                'Content-Type': 'multipart/form-data'
+                'Content-Type': 'multipart/form-data' /*multipart/form-data */
             }
         }
         const {data} = await axios.post('/api/usuario/registro', userData, config)
